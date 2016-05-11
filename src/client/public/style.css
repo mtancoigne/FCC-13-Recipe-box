@@ -1,0 +1,62 @@
+.collection {
+  margin-left: -15px;
+  margin-right: -15px;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+}
+
+.btn-floating {
+  border-radius: 3px;
+}
+
+.btn-floating.btn-large {
+  border-radius: 50%;
+}
+
+.card-actions .row {
+  padding: 0px 10px 10px 10px;
+  margin: -10px 0px 0px 0px;
+}
+.card-actions .btn:hover {
+  background-color: #EEE;
+}
+
+.message {
+  font-weight: bold;
+}
+
+.message.info {
+  color: #0c7cd5;
+  background-color: #9acffa;
+}
+
+.message.error {
+  color: #ea1c0d;
+  background-color: #fbb4af;
+}
+
+.message.success {
+  color: #3d8b40;
+  background-color: #a3d7a5;
+}
+
+.message.warning {
+  color: #cc7a00;
+  background-color: #ffcc80;
+}
+
+.message.default {
+  color: #FFF;
+}
+
+textarea {
+  max-height: 200px;
+  overflow-y: scroll !important;
+  font-family: monospace;
+  font-size: 1em;
+}
+
+.fixed-action-btn{
+  bottom: 45px; right: 24px;
+}
