@@ -1,5 +1,10 @@
 import React from 'react';
 
+/* ------------------------------
+
+Modal to add/update a recipe
+
+------------------------------ */
 class ModalForm extends React.Component{
   constructor(props){
     super(props);

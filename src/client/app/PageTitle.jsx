@@ -1,5 +1,10 @@
 import React from 'react';
 
+/* ------------------------------
+
+Page title
+
+------------------------------ */
 class PageTitle extends React.Component{
   render(){
     return (

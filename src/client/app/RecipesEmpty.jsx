@@ -1,8 +1,10 @@
 import React from 'react';
 
-/*
-No recipes message
-*/
+/* ------------------------------
+
+Message for no recipes
+
+------------------------------ */
 class RecipesEmpty extends React.Component{
   render(){
     return (

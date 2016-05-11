@@ -2,6 +2,13 @@ import React from 'react';
 
 import Ingredient from './Ingredient.jsx';
 
+/* ------------------------------
+
+Ingredient list
+
+IngredientsList
+  - Ingredient
+------------------------------ */
 class IngredientsList extends React.Component{
   render(){
     let i=0;

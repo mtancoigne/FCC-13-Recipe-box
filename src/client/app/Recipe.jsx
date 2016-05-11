@@ -3,6 +3,15 @@ import React from 'react';
 import IngredientsList from './IngredientsList.jsx';
 import IngredientsEmpty from './IngredientsEmpty.jsx';
 
+/* ------------------------------
+
+Recipe component
+
+Recipe
+  - IngredientsList
+    - Ingredient
+  - IngredientsEmpty if no ingredients
+------------------------------ */
 class Recipe extends React.Component{
   constructor(props){
     super(props);

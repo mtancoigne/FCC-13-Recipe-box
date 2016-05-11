@@ -1,5 +1,10 @@
 import React from 'react';
 
+/* ------------------------------
+
+Buttons for main actions
+
+------------------------------ */
 class ActionsButton extends React.Component{
   constructor(props){
     super(props);

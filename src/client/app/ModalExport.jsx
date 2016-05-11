@@ -1,5 +1,10 @@
 import React from 'react';
 
+/* ------------------------------
+
+Modal to import/export the data
+
+------------------------------ */
 class ModalExport extends React.Component{
   render(){
     return(

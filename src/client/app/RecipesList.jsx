@@ -2,6 +2,16 @@ import React from 'react';
 
 import Recipe from './Recipe.jsx';
 
+/* ------------------------------
+
+List of recipes
+
+RecipesList
+  - Recipe
+    - IngredientsList
+      - Ingredient
+    - IngredientsEmpty if no ingredients
+------------------------------ */
 class RecipesList extends React.Component{
   render(){
     console.log('  RecipesList.render called');

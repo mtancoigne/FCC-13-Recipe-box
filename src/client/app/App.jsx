@@ -10,6 +10,21 @@ import ActionsButton from "./ActionsButton.jsx";
 import ModalForm from "./ModalForm.jsx";
 import ModalExport from "./ModalExport.jsx"
 
+/* ------------------------------
+
+Main React component
+
+App
+  - RecipesList
+    - Recipe
+      - IngredientsList
+        - Ingredient
+      - IngredientsEmpty if no ingredients
+  - RecipesEmpty if no recipes
+  - FormModal
+  - ExportModal
+  - ActionsButtons
+------------------------------ */
 class App extends React.Component {
 
   constructor(props){
@@ -189,4 +204,7 @@ class App extends React.Component {
   }
 }
 
+/* ------------------------------
+Render the App
+------------------------------ */
 render(<App/>, document.getElementById('app'));

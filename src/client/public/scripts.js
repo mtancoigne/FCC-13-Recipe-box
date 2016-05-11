@@ -1,16 +1,25 @@
+/* ------------------------------
+Checks if the given string is a valid JSON string
+------------------------------ */
 function checkJSON(string) {
-    try {
-      JSON.parse(string);
-    } catch (e) {
-      return false;
-    }
-    return true;
+  try {
+    JSON.parse(string);
+  } catch (e) {
+    return false;
   }
+  return true;
+}
 
+/* ------------------------------
+Checks if local storage is available
+------------------------------ */
 function checkStorage(){
   return (typeof localStorage != 'undefined');
 }
 
+/* ------------------------------
+Helper for Materialize.toast()
+------------------------------ */
 function toast(type, message, duration) {
   var icon = 'fa fa-fw fa-';
   switch (type) {
