@@ -22,7 +22,6 @@ class Recipe extends React.Component{
   }
 
   render(){
-    //console.log('    Recipe.render called (id: '+this.props.rId+')');
     return (
       <div className="col s12 m6 l4">
         <div className="card">
@@ -60,7 +59,6 @@ class Recipe extends React.Component{
   }
 
   _recipeForm(e){
-    console.log('Editing ' + this.props.recipe.id);
     this.props._recipeForm(this.props.recipe.id);
   }
 

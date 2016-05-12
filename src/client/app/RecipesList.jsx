@@ -14,7 +14,6 @@ RecipesList
 ------------------------------ */
 class RecipesList extends React.Component{
   render(){
-    console.log('  RecipesList.render called');
     var nodeList=this.props.recipes.map(recipe=>(
       <Recipe
       recipe={recipe}

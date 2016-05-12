@@ -18,8 +18,8 @@ class ActionsButton extends React.Component{
         </a>
         <ul>
           <li><a className="btn-floating red"><i className="fa fa-fw fa-upload" title="Export" onClick={this._exportData.bind(this)}></i></a></li>
-        <li><a className="btn-floating green"><i className="fa fa-fw fa-download" title="Import" onClick={this._importData.bind(this)}></i></a></li>
-        <li><a className="btn-floating blue"><i className="fa fa-fw fa-plus" title="Add" onClick={this._recipeForm.bind(this)}></i></a></li>
+          <li><a className="btn-floating green"><i className="fa fa-fw fa-download" title="Import" onClick={this._importData.bind(this)}></i></a></li>
+          <li><a className="btn-floating blue"><i className="fa fa-fw fa-plus" title="Add" onClick={this._recipeForm.bind(this)}></i></a></li>
         </ul>
       </div>
     );

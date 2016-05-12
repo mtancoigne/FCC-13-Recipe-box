@@ -29,8 +29,6 @@ class App extends React.Component {
 
   constructor(props){
     super(props);
-    console.log('App.constructor called');
-
     // Define some properties
     this.state={
       // LocalStorage name
@@ -49,8 +47,9 @@ class App extends React.Component {
         {id:6, name: 'Hamburger', ingredients: 'Tomatoes, Lettuce, Onions, Hamburger buns', image: 'http://lorempixel.com/image_output/food-q-c-400-400-9.jpg'}
       ],
       // Modal states
+      emptyRecipe:{id:null, name:'', ingredients:'', image:''},
       modalFormData:{id:null, name:'', ingredients:'', image:''},
-      modalExportData:'',
+      modalExportData:{},
     };
 
     // Loads the data
@@ -82,7 +81,6 @@ class App extends React.Component {
   }
 
   render() {
-    console.log('App.render called');
     return (
       <div className="container">
         <PageTitle />
@@ -99,13 +97,13 @@ class App extends React.Component {
           _importData={this._importData.bind(this)}
         />
       <ModalForm recipe={this.state.modalFormData} _saveRecipe={this._saveRecipe.bind(this)}/>
-      <ModalExport data={this.state.modalExportData}/>
+      <ModalExport data={this.state.modalExportData} _batchImport={this._batchImport.bind(this)}/>
       </div>
     );
   }
 
   _recipeForm(id){
-    var recipe=this.props.emptyRecipe;
+    var recipe=this.state.emptyRecipe;
     if(id!=null){
       recipe=this._getRecipe(id);
       if(!recipe){
@@ -119,20 +117,28 @@ class App extends React.Component {
   }
 
   _exportData(){
-    this.setState({modalExportData:JSON.stringify(this.state.recipes)})
+    this.setState({
+      modalExportData:{mode:'export', data:JSON.stringify(this.state.recipes)}
+    })
     $('#exportModal').openModal({dismissible:false});
   }
 
   _importData(){
-    this.setState({modalExportData:''});
+    this.setState({modalExportData:{mode:'import', data:''}});
     $('#exportModal').openModal({dismissible:false});
+  }
+
+  _batchImport(data){
+    this.setState({recipes:data});
+    this._save(data);
+    toast('success', 'The data has been imported successfully', 3000);
   }
 
   _saveRecipe(recipe){
     var recipes=this.state.recipes;
     // Update
     if(recipe.id){
-      var index=this._getRecipeIndex(id);
+      var index=this._getRecipeIndex(recipe.id);
       if(index){
         recipes[index]=recipe;
         this._save(recipes);
@@ -145,9 +151,8 @@ class App extends React.Component {
       }
     }else{ // New recipe
       recipe.id=this.state.lastId+1;
-      recipes.push(recipe)
-      this._save(recipes);
-      //this.setState({lastId: recipe.id, recipes:recipes});
+      this._save(this.state.recipes.concat([recipe]));
+      this.setState({lastId: recipe.id, recipes:this.state.recipes.concat([recipe])});
       toast('success','The recipe has been saved.', 3000);
       return true;
     }
@@ -198,13 +203,12 @@ class App extends React.Component {
     // Not found
     return false;
   }
-
-  exportRecipes(name, ingredients, image){
-    console.log('ExportRecipes() called');
-  }
 }
 
 /* ------------------------------
 Render the App
 ------------------------------ */
-render(<App/>, document.getElementById('app'));
+$(document).ready(()=>{
+  render(<App/>, document.getElementById('app'));
+  $('#loader').fadeOut('slow');
+});
